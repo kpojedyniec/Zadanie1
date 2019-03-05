@@ -10,12 +10,17 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background-color:white;
+            background-color: white;
+        }
+        .container {
+            display: grid;
+           
         }
        
         header {
             width: 100%;
             font-size: 14px;
+            position:absolute;
         }
 
         ul {
@@ -75,10 +80,13 @@
             display: block;
             margin: auto;
             clear: both;
+            padding-bottom:0px;
+            padding-top:60px;
         }
 
         .form {
-            text-align: center;
+            text-align:center;
+            
         }
 
         #wyszukiwarka {
@@ -94,6 +102,13 @@
             border-radius: 2px;
             box-shadow: 1px 1px 4px #999;
             border-color: #f4f2f2;
+            text-indent: 5px;
+            border-top: 1px solid #bdbdbd;
+            border-bottom: 1px solid #d3d3d3;
+            border-left: 1px solid #d3d3d3;
+            border-right: 1px solid #d3d3d3;
+            padding-right:30px;
+            background-repeat:no-repeat;
         }
 
         #wyszukiwarka:hover {
@@ -115,6 +130,7 @@
                 padding: 10px 20px;
                 border-radius: 3px;
                 border: #e4e4e4;
+                background:#f3f3f3;
             }
 
             .przyciski #Szczęśliwy_traf {
@@ -124,6 +140,7 @@
                 padding: 10px 20px;
                 border-radius: 3px;
                 border: #e4e4e4;
+                background: #f3f3f3;
             }
 
         #Szukaj_w_Google:hover {
@@ -139,16 +156,14 @@
         }
 
         /* Stopka */
-        .container
-        {
-            display:grid;         
-        }
+       
         footer {
-            background: #f2f2f2;
+            background: #f3f3f3;
             border-top: solid 2px #e4e4e4;
             bottom: 0;
             padding-bottom: 0;
             width: 100%;
+            position:fixed;
             
         }
 
@@ -174,6 +189,7 @@
         .footer-right {
             float: right;
             padding-right:25px;
+            position:relative;
         }
 
         footer li {
@@ -189,53 +205,53 @@
 
 
 <body>
-    <header>
-        <nav>
-            <div class="naglowek">
+    <div class="container">
+        <header>
+                <nav>
+                    <ul id="nav_bar">
+                        <li class="nav-links"><a href="https://accounts.google.com/signin/v2/sl/pwd?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Gmail</a></li>
+                        <li class="nav-links"><a href="https://www.google.pl/imghp?hl=pl&tab=wi">Grafika</a></li>
+                        <li id="zaloguj_się"><a href="https://accounts.google.com/signin/v2/sl/pwd?hl=pl&passive=true&continue=https%3A%2F%2Fwww.google.pl%2F%3Fgws_rd%3Dssl&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Zaloguj się</a></li>
+                    </ul>
 
-            <ul id="nav_bar">
-                <li class="nav-links"><a href="https://accounts.google.com/signin/v2/sl/pwd?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Ftab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Gmail</a></li>
-                <li class="nav-links"><a href="https://www.google.pl/imghp?hl=pl&tab=wi">Grafika</a></li>
-                <li id="zaloguj_się"><a href="https://accounts.google.com/signin/v2/sl/pwd?hl=pl&passive=true&continue=https%3A%2F%2Fwww.google.pl%2F%3Fgws_rd%3Dssl&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Zaloguj się</a></li>
+                </nav>
+        </header>
+
+
+        <div class="google">
+            <a href="" id="google_logo"><img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt=" photo google-logo_zpspkcztsjo.png" width="320" height="230" /></a>
+        </div>
+
+
+        <div class="form">
+            <form>
+                <label for="form-search"></label>
+                <input type="text" id="wyszukiwarka" placeholder=" ">
+            </form>
+        </div>
+
+
+        <div class="przyciski">
+            <input type="submit" value="Szukaj w Google" id="Szukaj_w_Google">
+            <input type="submit" value="Szczęśliwy traf" id="Szczęśliwy_traf">
+        </div>
+
+
+        <footer>
+
+            <li>Polska</li>
+            <ul class="footer-left">
+                <li><a href="https://ads.google.com/intl/pl_pl/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">Reklamuj się</a></li>
+                <li><a href="https://www.google.pl/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none">Dla firm</a></li>
+                <li><a href="https://about.google/intl/pl_pl/?utm_source=google-PL&utm_medium=referral&utm_campaign=hp-footer&fg=1/">O nas</a></li>
             </ul>
-            </div>
-        </nav>
-    </header>
+            <ul class="footer-right">
+                <li><a href="https://policies.google.com/privacy?hl=pl&gl=pl">Prywatność</a></li>
+                <li><a href="https://policies.google.com/terms?hl=pl&gl=pl">Warunki</a></li>
+                <li><a href="https://www.google.pl/preferences?hl=pl&fg=1">Ustawienia</a></li>
+            </ul>
 
-
-    <div class="google">
-        <a href="" id="google_logo"><img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt=" photo google-logo_zpspkcztsjo.png" width="320" height="230" /></a>
+        </footer>
     </div>
-
-
-    <div class="form">
-        <form>
-            <label for="form-search"></label>
-            <input type="text" id="wyszukiwarka" placeholder=" ">
-        </form>
-    </div>
-
-
-    <div class="przyciski">
-        <input type="submit" value="Szukaj w Google" id="Szukaj_w_Google">
-        <input type="submit" value="Szczęśliwy traf" id="Szczęśliwy_traf">
-    </div>
-
-
-    <footer>
-        <foot class="container">
-        <li>Polska</li>
-        <ul class="footer-left">
-            <li><a href="https://ads.google.com/intl/pl_pl/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">Reklamuj się</a></li>
-            <li><a href="https://www.google.pl/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none">Dla firm</a></li>
-            <li><a href="https://about.google/intl/pl_pl/?utm_source=google-PL&utm_medium=referral&utm_campaign=hp-footer&fg=1/">O nas</a></li>
-        </ul>
-        <ul class="footer-right">
-            <li><a href="https://policies.google.com/privacy?hl=pl&gl=pl">Prywatność</a></li>
-            <li><a href="https://policies.google.com/terms?hl=pl&gl=pl">Warunki</a></li>
-            <li><a href="https://www.google.pl/preferences?hl=pl&fg=1">Ustawienia</a></li>
-        </ul>
-        </foot>
-    </footer>
 </body>
 </html>
