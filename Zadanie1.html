@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <title>Google</title>
     <style>
-
         body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
             width: 100%;
             height: 100%;
-            overflow: hidden;
         }
 
         .container {
@@ -21,36 +19,33 @@
             height: 100vh;
             grid-template-columns: auto auto auto;
             grid-template-rows: 40px auto 40px 40px;
-            grid-template-areas:"nav nav nav" "main main main" "kraj kraj kraj" "footer footer footer";
+            grid-template-areas: "nav nav nav" "main main main" "kraj kraj kraj" "footer footer footer";
         }
 
         header {
             width: 100%;
-            font-size:5px;
-          /* position: absolute;*/
+            font-size: 5px;
+            /* position: absolute;*/
             grid-area: nav;
-           
         }
 
         ul {
             list-style: none;
         }
-
         /* Naglowek */
         .naglowek {
             display: flex;
             justify-content: flex-end;
-           
         }
 
         #nav_bar {
             float: right;
         }
-  
+
             #nav_bar li {
                 display: inline-block;
                 padding: 9px;
-                font-size: 14px;              
+                font-size: 14px;
             }
 
             #nav_bar #zaloguj_się {
@@ -75,11 +70,9 @@
             text-decoration: underline;
             cursor: pointer;
         }
-
-       /* #zaloguj_się:hover {
+        /* #zaloguj_się:hover {
             box-shadow: 1px 1px 5px #999;
         }*/
-
         #zaloguj_się {
             color: #fff;
         }
@@ -88,7 +81,6 @@
             grid-area: main;
             text-align: center;
         }
-
         /* Google */
         .google {
             text-align: center;
@@ -101,12 +93,11 @@
 
         .form {
             text-align: center;
-            display:flex;
-            align-items:center;
-            justify-content:space-around;
-           
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
         }
-        
+
         #wyszukiwarka {
             width: 550px;
             height: 45px;
@@ -127,12 +118,13 @@
             padding-right: 30px;
             background-repeat: no-repeat;
             text-indent: 30px;
+            outline: none;
         }
 
         #wyszukiwarka:hover {
-           
-           box-shadow: 1px 1px 5px #999;
+            box-shadow: 1px 1px 5px #999;
         }
+
         #wyszukiwarka:focus {
             box-shadow: 1px 1px 5px #999;
         }
@@ -140,7 +132,6 @@
         .przyciski {
             text-align: center;
             padding-top: 30px;
-            margin-bottom: 70px;
         }
 
             .przyciski #Szukaj_w_Google {
@@ -165,7 +156,7 @@
                 background-color: #f3f3f3;
                 font: 'Roboto', sans-serif;
                 font-size: 14px;
-                border: 1px solid #F3F3F3; 
+                border: 1px solid #F3F3F3;
             }
 
         #Szukaj_w_Google:hover {
@@ -181,9 +172,7 @@
             cursor: pointer;
             border: solid 0.5px #f3f3f3;
         }
-
         /* Stopka */
-
         footer {
             background-color: #f4f4f4;
             background: #f3f3f3;
@@ -191,38 +180,40 @@
             bottom: 0;
             padding-bottom: 0px;
             width: 100%;
-           /* position: fixed;*/
+            /* position: fixed;*/
             grid-area: footer;
             line-height: 35px;
-           
         }
 
-                footer a:hover {
-                    text-decoration: underline;
-                    cursor: pointer;
-                }
+            footer a:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
 
         .footer-right {
             float: right;
             padding-right: 25px;
-           /* position: relative;*/
+            /* position: relative;*/
         }
+
             .footer-right a {
                 color: #666666;
                 font-size: 14px;
                 padding: 6px;
                 padding-left: 23px;
-                text-decoration:none;
+                text-decoration: none;
             }
-        .footer-left{
-            padding-left:25px;
+
+        .footer-left {
+            padding-left: 25px;
         }
+
             .footer-left a {
                 color: #666666;
                 font-size: 14px;
                 padding: 6px;
                 padding-right: 23px;
-                text-decoration:none;
+                text-decoration: none;
             }
 
         .kraj {
@@ -231,14 +222,14 @@
             grid-area: kraj;
             border-top: solid 1px #e4e4e4;
             background-color: #f2f2f2;
-            margin:0;
+            margin: 0;
         }
 
             .kraj p {
                 color: #666666;
                 font-size: 15px;
                 padding-left: 32px;
-                padding-bottom:10px;
+                padding-bottom: 10px;
             }
 
         #microphone {
@@ -249,9 +240,8 @@
             color: #4887ef;
             cursor: pointer;
             width: 0;
-           
         }
-       
+
         #keybord {
             position: relative;
             z-index: 1;
@@ -263,14 +253,13 @@
         }
 
         #search {
-            position:relative;
+            position: relative;
             z-index: auto;
             left: 20px;
             top: 1px;
             color: #4887ef;
             cursor: pointer;
             width: 0;
-           
         }
 
         #apps {
@@ -282,13 +271,29 @@
             width: 10px;
             padding: 20px;
             padding-left: 0px;
-            font-size: 18px;          
+            font-size: 18px;
         }
 
-        #apps:hover {
-            color: black;
+            #apps:hover {
+                color: black;
+            }
+
+        main {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            text-align: center;
         }
-      
+
+        table {
+            text-align: left;
+            position: relative;
+            width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 2px 2px 0 #f3f3f3, 0 0 0 1px #f3f3f3;
+        }
     </style>
 </head>
 
@@ -313,22 +318,21 @@
             </div>
 
             <div class="form">
-                <div class="form_flex">
-                    <form>
-                        <i id="search" class="fas fa-search"></i>
-                        <input type="text" id="wyszukiwarka" placeholder=" ">
-                        <i id="microphone" class="fas fa-microphone"></i>
-                        <i id="keybord" class="fas fa-keyboard"></i>
-                    </form>
-                </div>
-            </div>
+                <form>
+                    <i id="search" class="fas fa-search"></i>
+                    <input v-model="inputContent" id="wyszukiwarka" />
+                    <i id="microphone" class="fas fa-microphone"></i>
+                    <i id="keybord" class="fas fa-keyboard"></i>
+                </form>
 
+            </div>
+            <v-autocompleter v-bind:input="inputContent" v-if="inputContent"></v-autocompleter>
             <div class="przyciski">
                 <button id="Szukaj_w_Google" class="mdc-button_label mdc-js-button_label mdc-button_label--fab">
-                    <i>Szukaj w Google</i>
+                    <a>Szukaj w Google</a>
                 </button>
                 <button id="Szczęśliwy_traf" class="mdc-button_label mdc-js-button_label mdc-button_label--fab">
-                    <i>Szczęśliwy traf</i>
+                    <a>Szczęśliwy traf</a>
                 </button>
             </div>
         </main>
@@ -350,5 +354,9 @@
             </span>
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="animals.js"></script>
+    <script src="autocompleter.js"></script>
 </body>
 </html>
