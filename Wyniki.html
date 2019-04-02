@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <title>Wyniki</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 110px 600px auto;
+            grid-template-rows: 85px 40px auto 40px 40px;
+            grid-template-areas: "nav nav nav" "pasek pasek pasek" "main main main" "kraj kraj kraj" "footer footer footer";
+        }
+
+        header {
+            width: 100%;
+            grid-area: nav;
+            display: inline;
+        }
+
+        /* Naglowek */
+        .links {
+            justify-content: flex-end;
+            align-items: flex-end;
+            grid-column-start: 3;
+            grid-row: 1;
+            flex: 1;
+            color: black;
+            padding: 20px 35px;
+            font-size: 14px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            grid-area: nav;
+        }
+
+            .links > div {
+                width: auto;
+                margin: 10px;
+                text-align: center;
+                font-size: 14px;
+                color: #404040;
+                padding: 4px 5px;
+            }
+
+            .links #logowanie {
+                color: #fff;
+                font-size: 13px;
+                text-decoration: none;
+                border: 1px solid #4285f4;
+                background: #4887ef;
+                margin-right: 25px;
+                padding: 5px 13px;
+                border-radius: 3px;
+                font-weight: bold;
+            }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav_links a:hover {
+            text-decoration: underline;
+            color: #757272;
+        }
+
+        #logowanie:hover {
+            box-shadow: 1px 1px 5px #999;
+        }
+
+        #logowanie {
+            color: #fff;
+        }
+        /* HEADER */
+
+        .nav {
+            display: inline-grid;
+            grid-area: nav;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding-top: 20px;
+            padding-left: 10px;
+        }
+
+        main {
+            grid-area: main;
+        }
+        /* Google */
+        .google {
+            max-height: 153px;
+            max-width: 135px;
+            grid-column-start: 1;
+            align-items: center;
+            align-self: center;
+            grid-column: 1;
+            grid-row: 1/3;
+            padding-right: 50px;
+        }
+
+        #google-logo {
+            clear: both;
+            display: block;
+            margin: auto;
+            width: 90px;
+            height: auto;
+            text-align: center;
+            padding-left: 10px;
+        }
+
+        .form {
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-self: center;
+            grid-column-start: 2;
+        }
+
+        .flex {
+            display: flex;
+            width: 550px;
+            border-radius: 20px;
+            border: 1px solid #DFE1E5;
+            text-align: center;
+            padding: 5px 20px;
+        }
+
+        #wyszukiwarka {
+            /*width: 550px;
+            height: 35px;*/
+            line-height: 35px;
+            padding: 10px 5px;
+            grid-area: nav;
+            display: flex;
+            line-height: 30px;
+            padding: 20px 10px;
+            text-indent: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            border: none transparent;
+            padding-right: 10px;
+            padding-left: 10px;
+            flex: 1;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: 30px;
+        }
+
+        .form #wyszukiwarka {
+            padding: 0 8px;
+        }
+
+        .flex:hover {
+            box-shadow: 0 0 0px rgba(33,33,33, .2);
+        }
+
+        .pasek {
+            width: 100%;
+            grid-area: pasek;
+            border-bottom: solid 1px #E4E4E4;
+            color: #404040;
+            padding-left: 150px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+
+            .pasek a {
+                color: #6F6F6F;
+                text-decoration: none;
+                font-size: 13px;
+                padding-right: 30px;
+            }
+
+        /* #wyszukiwarka:hover {
+            box-shadow: 1px 1px 5px #999;
+        }
+
+        #wyszukiwarka:focus {
+            box-shadow: 1px 1px 5px #999;
+        }*/
+
+        #microphone {
+            position: relative;
+            z-index: 1;
+            left: -70px;
+            top: 0px;
+            color: #4887ef;
+            cursor: pointer;
+            width: 0;
+            font-size: 15px;
+            display: flex;
+            padding-top: 8px;
+        }
+
+        #keybord {
+            position: relative;
+            z-index: 1;
+            left: -115px;
+            top: 0px;
+            color: #666666;
+            cursor: pointer;
+            width: 0;
+            font-size: 15px;
+            display: flex;
+            padding-top: 8px;
+        }
+
+        #search {
+            position: relative;
+            z-index: auto;
+            left: 525px;
+            padding-top: 8px;
+            color: #4887ef;
+            cursor: pointer;
+            width: 0;
+            font-size: 15px;
+            display: flex;
+        }
+
+        #apps {
+            position: relative;
+            z-index: 1;
+            top: 0px;
+            color: #666666;
+            cursor: pointer;
+            width: 10px;
+            padding: 20px;
+            padding-left: 0px;
+            font-size: 18px;
+        }
+
+            #apps:hover {
+                color: black;
+            }
+
+        table {
+            position: relative;
+            /* right: -500px;*/
+            border-radius: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            width: 550px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: auto;
+            margin-left: auto;
+            border-top: none;
+            margin-right: auto;
+            border: none;
+            box-shadow: 0 2px 2px 0 #f3f3f3, 0 0 0 1px #f3f3f3;
+        }
+
+        .autocomplete-result {
+            padding-bottom: 3px;
+        }
+
+
+        /* Stopka */
+        footer {
+            background-color: #f4f4f4;
+            background: #f3f3f3;
+            border-top: solid 1px #e4e4e4;
+            bottom: 0;
+            padding-bottom: 0px;
+            width: 100%;
+            /* position: fixed;*/
+            grid-area: footer;
+            line-height: 35px;
+        }
+
+            footer a:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+        .footer-left {
+            padding-left: 145px;
+        }
+
+            .footer-left a {
+                color: #666666;
+                font-size: 14px;
+                padding: 4px;
+                padding-right: 23px;
+                text-decoration: none;
+            }
+
+        .kraj {
+            height: 40px;
+            line-height: 15px;
+            grid-area: kraj;
+            border-top: solid 1px #e4e4e4;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+            .kraj p {
+                color: #666666;
+                font-size: 15px;
+                padding-left: 150px;
+                padding-bottom: 10px;
+            }
+
+        .wyniki {
+            padding-top: 20px;
+            padding-left: 120px;
+        }
+
+            .wyniki ul {
+                list-style: none;
+            }
+
+            .wyniki h3 {
+                color: #1a0dab;
+                margin: 0;
+                font-size: 18px;
+                line-height: 1.3;
+                cursor: pointer;
+                font-weight:80;
+            }
+
+            .wyniki h4 {
+                color: #267a4e;
+                margin: 0;
+                font-size: 14px;
+                line-height: 1.2;
+                font-weight: 80;
+            }
+
+            .wyniki h3:hover {
+                text-decoration: underline;
+            }
+
+            .wyniki p {
+                color: #545454;
+                line-height: 1.54;
+                margin: 0;
+                font-size: 14px;
+                text-align: left;
+                padding-bottom:12px;
+                
+            }
+
+          
+        .autocompleter {
+            grid-column: 2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="google">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" height="35" id="google-logo" />
+            </div>
+            <div class="autocompleter">
+                <div class="form">
+                    <div class="flex">
+                        <i id="search" class="fas fa-search"></i>
+                        <input v-model="inputContent" id="wyszukiwarka" />
+                        <i id="microphone" class="fas fa-microphone"></i>
+                        <i id="keybord" class="fas fa-keyboard"></i>
+                    </div>
+                </div>
+
+                <v-autocompleter v-bind:input="inputContent" v-if="inputContent"></v-autocompleter>
+            </div>
+            <div class="links">
+                <div class="nav_links" id="Aps"><a href="https://www.google.pl/intl/pl/about/products?tab=wh"><i class="fas fa-th"></i></a></div>
+                <div id="logowanie"><a href="https://accounts.google.com/ServiceLogin/signinchooser?hl=pl&passive=true&continue=https%3A%2F%2Fwww.google.pl%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin">Zaloguj się</a></div>
+            </div>
+        </div>
+
+        <div class="pasek">
+            <a href="#">Wszystko</a>
+            <a href="#">Filmy</a>
+            <a href="#">Grafika</a>
+            <a href="#">Wiadomości</a>
+            <a href="#">Mapy</a>
+            <a href="#">Więcej</a>
+            <a href="#">Ustawienia</a>
+            <a href="#">Narzędzia</a>
+        </div>
+
+        <main>
+
+
+            <div class="wyniki">
+                <ul>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                    <li>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <h4>consectetur adipiscing elit</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua elit.</p>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <div class="kraj">
+            <p>Polska</p>
+        </div>
+
+        <footer>
+            <div class="footer-left">
+                <a href="https://policies.google.com/privacy?hl=pl&gl=pl">Pomoc</a>
+                <a href="https://www.google.com/search?q=lorem+ipsum&rlz=1C1GCEU_enPL826PL826&oq=lorem&aqs=chrome.1.69i57j0l5.3109j0j8&sourceid=chrome&ie=UTF-8">Przślij opinię</a>
+                <a href="https://policies.google.com/privacy?hl=pl&gl=pl">Prywatność</a>
+                <a href="https://policies.google.com/terms?hl=pl&gl=pl">Warunki</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="animals.js"></script>
+    <script src="autocompleter2.js"></script>
+</body>
+</html>
