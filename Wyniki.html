@@ -249,7 +249,7 @@
             }
 
         table {
-            position: relative;
+            position: absolute;
             /* right: -500px;*/
             border-radius: 10px;
             text-align: left;
@@ -264,6 +264,9 @@
             margin-right: auto;
             border: none;
             box-shadow: 0 2px 2px 0 #f3f3f3, 0 0 0 1px #f3f3f3;
+            z-index:100;
+            background:white;
+            left:0;
         }
 
         .autocomplete-result {
@@ -360,6 +363,7 @@
           
         .autocompleter {
             grid-column: 2;
+            position:relative;
         }
     </style>
 
